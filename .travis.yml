@@ -14,7 +14,8 @@ after_success:
   - docker build -t rajshahdev/multi-server Dockerfile ./server
   - docker build -t rajshahdev/multi-worker Dockerfile ./worker
   # Login to dockerhub
-  - docker login -u "$DOCKER_USER" -p "$DOCKER_PWD"
+  # - docker login -u "$DOCKER_USER" -p "$DOCKER_PWD"
+  - echo "\$DOCKER_PWD" | docker login -u "\$DOCKER_USER" --password-stdin
   - docker push rajshahdev/multi-client
   - docker push rajshahdev/multi-nginx 
   - docker push rajshahdev/multi-server
