@@ -9,10 +9,10 @@ script:
   - docker run -e CI=true docker-reactor npm run test -- --coverage
 
 after_success:
-  - docker build -t rajshahdev/multi-client Dockerfile ./client
-  - docker build -t rajshahdev/multi-nginx Dockerfile ./nginx
-  - docker build -t rajshahdev/multi-server Dockerfile ./server
-  - docker build -t rajshahdev/multi-worker Dockerfile ./worker
+  - docker build -t rajshahdev/multi-client -f Dockerfile ./client
+  - docker build -t rajshahdev/multi-nginx -f Dockerfile ./nginx
+  - docker build -t rajshahdev/multi-server -f Dockerfile ./server
+  - docker build -t rajshahdev/multi-worker -f Dockerfile ./worker
   # Login to dockerhub
   # - docker login -u "$DOCKER_USER" -p "$DOCKER_PWD"
   - echo "\$DOCKER_PWD" | docker login -u "\$DOCKER_USER" --password-stdin
