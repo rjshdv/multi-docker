@@ -1,0 +1,39 @@
+{
+    "AWSEBDockerrunVersion": "3",
+    "containerDefinitions":[
+        {
+            "name": "frontend",
+            "image": "rajshahdev/multi-client",
+            "hostname": "frontend",
+            "essential": false
+        },
+        {
+            "name": "backend",
+            "image": "rajshahdev/multi-server",
+            "hostname": "backend",
+            "essential": false
+        },
+        {
+            "name": "worker",
+            "image": "rajshahdev/multi-worker",
+            "hostname": "worker",
+            "essential": false
+        },
+        {
+            "name": "nginx",
+            "image": "rajshahdev/multi-nginx",
+            "hostname": "nginx",
+            "essential": true,
+            "portMappings":[
+                {   
+                    "hostPort": "80",
+                    "containerPort": "80"
+                }
+            ],
+            "links": [
+                "frontend",
+                "backend"
+            ]
+        }
+    ]
+}

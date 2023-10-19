@@ -20,3 +20,15 @@ after_success:
   - docker push rajshahdev/multi-nginx 
   - docker push rajshahdev/multi-server
   - docker push rajshahdev/multi-worker 
+
+deploy:
+  provider: elasticbeanstalk
+  region: 'ap-south-1'
+  app: 'multi-docker'
+  env: 'Multi-docker-env'
+  bucket_name: 'elasticbeanstalk-ap-south-1-245505614209'
+  bucket_path: 'docker-multi'
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
