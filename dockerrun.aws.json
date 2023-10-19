@@ -6,21 +6,21 @@
             "image": "rajshahdev/multi-client",
             "hostname": "frontend",
             "essential": false,
-            "memory": 128
+            "memory": 250
         },
         {
             "name": "backend",
             "image": "rajshahdev/multi-server",
             "hostname": "backend",
             "essential": false,
-            "memory": 128
+            "memory": 250
         },
         {
             "name": "worker",
             "image": "rajshahdev/multi-worker",
             "hostname": "worker",
             "essential": false,
-            "memory": 128
+            "memory": 250
         },
         {
             "name": "nginx",
@@ -37,7 +37,7 @@
                 "frontend",
                 "backend"
             ],
-            "memory": 128
+            "memory": 250
         }
     ]
 }
